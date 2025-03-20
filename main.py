@@ -1,7 +1,11 @@
+import os
+from dotenv import load_dotenv
 import telebot
 
-TOKEN = "7293498502:AAHTOU5qcWEheLuaHty0_rTUY38wNTq1hoM"
-bot = telebot.TeleBot(TOKEN)
+load_dotenv()
+
+token = os.getenv('TOKEN')
+bot = telebot.TeleBot(token)
 
 @bot.message_handler(func=lambda message: message.text.lower() == "bonjour")
 def greet_user(message):
